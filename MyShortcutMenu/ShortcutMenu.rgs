@@ -1,0 +1,27 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {A07194F3-8590-45BC-8CDD-6E492F73FB8E} = s 'ShortcutMenu Class'
+		{
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{FBCD16FF-FD89-4D20-A7DA-9F9ECB95C7BC}'
+			Version = s '1.0'
+		}
+	}
+
+	NoRemove *
+	{
+		NoRemove shellex
+		{
+			NoRemove ContextMenuHandlers
+			{
+				ForceRemove MyShortcutMenu = s '{A07194F3-8590-45BC-8CDD-6E492F73FB8E}'
+			}
+		}
+	}
+}

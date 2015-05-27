@@ -1,0 +1,35 @@
+// MyShortcutMenu.idl : MyShortcutMenu 的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 产生类型库(MyShortcutMenu.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(465D3EFB-B6B6-48A3-B6B4-2D3F24F4C1CE),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IShortcutMenu : IDispatch{
+};
+[
+	uuid(FBCD16FF-FD89-4D20-A7DA-9F9ECB95C7BC),
+	version(1.0),
+]
+library MyShortcutMenuLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(A07194F3-8590-45BC-8CDD-6E492F73FB8E)		
+	]
+	coclass ShortcutMenu
+	{
+		[default] interface IShortcutMenu;
+	};
+};
+
+import "shobjidl.idl";
